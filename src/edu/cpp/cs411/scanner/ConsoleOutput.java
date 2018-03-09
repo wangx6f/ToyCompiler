@@ -65,7 +65,7 @@ public class ConsoleOutput implements Output {
     }
 
     public void newLine(){
-        if (printStringBuilder.charAt(printStringBuilder.length()-1) != '\n') {
+        if (printStringBuilder.length()!=0 && printStringBuilder.charAt(printStringBuilder.length()-1) != '\n') {
             printStringBuilder.append("\n");
         }
 
@@ -77,7 +77,7 @@ public class ConsoleOutput implements Output {
     }
 
     public void consolePrint(){
-        System.out.println("Result of the scanner:");
+        System.out.println("\nResult of the scanner:");
         System.out.println(printStringBuilder.toString());
     }
 

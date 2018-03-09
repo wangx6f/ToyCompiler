@@ -3,6 +3,7 @@
     <output-path>$PROJECT_DIR$/out/artifacts/ToyCompiler_jar</output-path>
     <root id="archive" name="ToyCompiler.jar">
       <element id="module-output" name="ToyCompiler" />
+      <element id="extracted-dir" path="$PROJECT_DIR$/../Parser/java-cup-11b-runtime.jar" path-in-jar="/" />
     </root>
   </artifact>
 </component>

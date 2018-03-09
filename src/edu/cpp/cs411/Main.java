@@ -25,7 +25,9 @@ public class Main {
 
         if (accepted) {
             Parser p = new Parser(new ScannerBridge(output),new ComplexSymbolFactory());
+            System.out.println("\nResult of the parser:");
             p.parse();
+            System.out.println("\n[accept]");
         }
     }
 

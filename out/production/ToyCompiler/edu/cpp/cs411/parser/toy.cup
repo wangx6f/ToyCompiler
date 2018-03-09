@@ -2,6 +2,7 @@ package edu.cpp.cs411.parser;
 import java_cup.runtime.*;
 class Parser;
 
+parser code {: public void syntax_error(Symbol cur_token){System.out.println("\n[reject]");}; :};
 
 /* Terminals (tokens returned by the scanner). */
 terminal         BOOLEAN, BREAK, CLASS, DOUBLE, ELSE, EXTENDS, FOR, IF, IMPLEMENTS, INT,

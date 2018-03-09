@@ -1,0 +1,177 @@
+package edu.cpp.cs411.parser;
+import java_cup.runtime.*;
+import edu.cpp.cs411.parser.ScannerInterface;
+class Parser;
+
+parser code {:
+    // Connect this parser to a scanner!
+    private ScannerInterface s;
+    public Parser(ScannerInterface s){ this.s = s; }
+:}
+
+scan with {: return s.next_token(); :};
+
+/* Terminals (tokens returned by the scanner). */
+terminal         BOOLEAN, BREAK, CLASS, DOUBLE, ELSE, EXTENDS, FOR, IF, IMPLEMENTS, INT,
+                 INTERFACE, NEWARRAY, PRINTLN, READLN, RETURN, STRING, VOID, WHILE, PLUS, MINUS, MULTIPLICATION,
+                 DIVISION, MOD, LESS, LESSEQUAL, GREATER, GREATEREQUAL, EQUAL, NOTEQUAL, AND, OR,
+                 NOT, ASSIGNOP, SEMICOLON, COMMA, PERIOD, LEFTPAREN, RIGHTPAREN, LEFTBRACKET, RIGHTBRACKET, LEFTBRACE,
+                 RIGHTBRACE, INTCONSTANT, DOUBLECONSTANT, STRINGCONSTANT, BOOLEANCONSTANT, ID;
+
+
+/* Non terminals */
+non terminal     Program, DeclPlus, Decl, VariableDecl, FunctionDecl, ClassDecl, InterfaceDecl,
+                 Variable, Type, T, Formals, StmtBlock, OptionalExtends, OptionalImplements,
+                 FieldStar, IdPlusComma, Field, PrototypeStar, Prototype, VariableDeclPlus,
+                 StmtPlus, Stmt, OptionalExpr, Expr, IfStmt, OptionalElse, WhileStmt,
+                 ForStmt, BreakStmt, ReturnStmt, PrintStmt, ExprPlusComma, Lvalue,
+                 Constant, Call, Actuals;
+
+/* Precedences */
+precedence left ELSE;
+precedence nonassoc ASSIGNOP;
+precedence left OR;
+precedence left AND;
+precedence left EQUAL, NOTEQUAL;
+precedence nonassoc LESS, LESSEQUAL, GREATER, GREATEREQUAL;
+precedence left PLUS, MINUS;
+precedence left MULTIPLICATION, DIVISION, MOD;
+precedence nonassoc NOT;
+precedence nonassoc LEFTBRACKET, PERIOD;
+
+
+/* The grammar rules */
+Program ::= DeclPlus {: System.out.println(1);:}
+;
+DeclPlus ::= Decl {: System.out.println("unordered");:}
+            | Decl DeclPlus {: System.out.println("unordered");:}
+;
+Decl ::= VariableDecl {: System.out.println(2);:}
+        | FunctionDecl {: System.out.println(3);:}
+        | ClassDecl {: System.out.println(4);:}
+        | InterfaceDecl {: System.out.println(5);:}
+;
+VariableDecl ::= Variable SEMICOLON {: System.out.println(6);:}
+;
+Variable ::= Type ID {: System.out.println(7);:}
+;
+Type ::= INT T {: System.out.println(8);:}
+       | DOUBLE T {: System.out.println(9);:}
+       | BOOLEAN T {: System.out.println(10);:}
+       | STRING T {: System.out.println(11);:}
+       | ID T {: System.out.println(13);:}
+;
+T ::= LEFTBRACKET RIGHTBRACKET T {: System.out.println(12);:}
+    | /* empty */ {: System.out.println(13);:}
+;
+FunctionDecl ::= Type ID LEFTPAREN Formals RIGHTPAREN StmtBlock {: System.out.println(14);:}
+              | VOID ID LEFTPAREN Formals RIGHTPAREN StmtBlock {: System.out.println(15);:}
+;
+Formals ::= Variable {: System.out.println(16);:}
+          | Variable COMMA Formals {: System.out.println(17);:}
+          | /* empty */ {: System.out.println(18);:}
+;
+ClassDecl ::= CLASS ID OptionalExtends OptionalImplements LEFTBRACE FieldStar RIGHTBRACE {: System.out.println(19);:}
+;
+OptionalExtends ::= EXTENDS ID {: System.out.println(20);:}
+          | /* empty */ {: System.out.println(21);:}
+;
+OptionalImplements ::= IMPLEMENTS IdPlusComma {: System.out.println(22);:}
+                    | /* empty */ {: System.out.println(23);:}
+;
+IdPlusComma ::= ID {: System.out.println(24);:}
+              | ID COMMA IdPlusComma {: System.out.println(25);:}
+;
+FieldStar ::= Field FieldStar {: System.out.println(26);:}
+            | /* empty */ {: System.out.println(27);:}
+;
+Field ::= VariableDecl {: System.out.println(28);:}
+        | FunctionDecl {: System.out.println(29);:}
+;
+InterfaceDecl ::= INTERFACE ID LEFTBRACE PrototypeStar RIGHTBRACE {: System.out.println(30);:}
+;
+PrototypeStar ::= Prototype PrototypeStar {: System.out.println(31);:}
+                | /* empty */ {: System.out.println(32);:}
+;
+Prototype ::= Type ID LEFTPAREN Formals RIGHTPAREN SEMICOLON {: System.out.println(33);:}
+            | VOID ID LEFTPAREN Formals RIGHTPAREN SEMICOLON {: System.out.println(34);:}
+;
+StmtBlock ::= LEFTBRACE VariableDeclPlus StmtPlus RIGHTBRACE {: System.out.println(35);:}
+            | LEFTBRACE VariableDeclPlus RIGHTBRACE {: System.out.println("unordered");:}
+            | LEFTBRACE StmtPlus RIGHTBRACE {: System.out.println("unordered");:}
+            | LEFTBRACE RIGHTBRACE {: System.out.println("unordered");:}
+;
+VariableDeclPlus ::= VariableDeclPlus VariableDecl {: System.out.println(36);:}
+                  | VariableDecl {: System.out.println(37);:}
+;
+StmtPlus ::= StmtPlus Stmt {: System.out.println(38);:}
+           | Stmt {: System.out.println(39);:}
+;
+Stmt ::= OptionalExpr SEMICOLON {: System.out.println(40);:}
+       | IfStmt {: System.out.println(41);:}
+       | WhileStmt {: System.out.println(42);:}
+       | ForStmt {: System.out.println(43);:}
+       | BreakStmt {: System.out.println(44);:}
+       | ReturnStmt {: System.out.println(45);:}
+       | PrintStmt {: System.out.println(46);:}
+       | StmtBlock {: System.out.println(47);:}
+;
+OptionalExpr ::= Expr {: System.out.println(48);:}
+               | /* empty */ {: System.out.println(49);:}
+;
+IfStmt ::= IF LEFTPAREN Expr RIGHTPAREN Stmt OptionalElse {: System.out.println(50);:}
+;
+OptionalElse ::= ELSE Stmt {: System.out.println(51);:}
+              | /* empty */ {: System.out.println(52);:}
+;
+WhileStmt ::= WHILE LEFTPAREN Expr RIGHTPAREN Stmt {: System.out.println(53);:}
+;
+ForStmt ::= FOR LEFTPAREN OptionalExpr SEMICOLON Expr SEMICOLON OptionalExpr RIGHTPAREN Stmt {: System.out.println(54);:}
+;
+BreakStmt ::= BREAK SEMICOLON {: System.out.println(55);:}
+;
+ReturnStmt ::= RETURN OptionalExpr SEMICOLON {: System.out.println(56);:}
+;
+PrintStmt ::= PRINTLN LEFTPAREN ExprPlusComma RIGHTPAREN SEMICOLON {: System.out.println(57);:}
+;
+ExprPlusComma ::= Expr {: System.out.println(58);:}
+               | Expr COMMA ExprPlusComma {: System.out.println(59);:}
+;
+Expr ::= Lvalue ASSIGNOP Expr {: System.out.println(60);:}
+       | Constant {: System.out.println(61);:}
+       | Lvalue {: System.out.println(62);:}
+       | Call {: System.out.println(63);:}
+       | LEFTPAREN Expr RIGHTPAREN {: System.out.println(64);:}
+       | Expr PLUS Expr {: System.out.println(65);:}
+       | Expr MINUS Expr {: System.out.println(66);:}
+       | Expr MULTIPLICATION Expr {: System.out.println(67);:}
+       | Expr DIVISION Expr {: System.out.println(68);:}
+       | Expr MOD Expr {: System.out.println(69);:}
+       | MINUS Expr {: System.out.println(70);:}
+       | Expr LESS Expr {: System.out.println(71);:}
+       | Expr LESSEQUAL Expr {: System.out.println(72);:}
+       | Expr GREATER Expr {: System.out.println(73);:}
+       | Expr GREATEREQUAL Expr {: System.out.println(74);:}
+       | Expr EQUAL Expr {: System.out.println(75);:}
+       | Expr NOTEQUAL Expr {: System.out.println(76);:}
+       | Expr AND Expr {: System.out.println(77);:}
+       | Expr OR Expr {: System.out.println(78);:}
+       | NOT Expr {: System.out.println(79);:}
+       | READLN LEFTPAREN RIGHTPAREN {: System.out.println(80);:}
+       | NEWARRAY LEFTPAREN INTCONSTANT COMMA Type RIGHTPAREN {: System.out.println(81);:}
+;
+Lvalue ::= ID {: System.out.println(82);:}
+         | Lvalue LEFTBRACKET Expr RIGHTBRACKET {: System.out.println(83);:}
+         | Lvalue PERIOD ID {: System.out.println(84);:}
+;
+Call ::= ID LEFTPAREN Actuals RIGHTPAREN {: System.out.println(85);:}
+       | ID PERIOD ID LEFTPAREN Actuals RIGHTPAREN {: System.out.println(86);:}
+;
+Actuals ::= ExprPlusComma  {: System.out.println(87);:}
+          | /* empty */ {: System.out.println(88);:}
+;
+Constant ::= INTCONSTANT  {: System.out.println(89);:}
+           | DOUBLECONSTANT  {: System.out.println(90);:}
+           | STRINGCONSTANT  {: System.out.println(91);:}
+           | BOOLEANCONSTANT  {: System.out.println(92);:}
+;

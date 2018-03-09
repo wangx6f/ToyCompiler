@@ -1,0 +1,56 @@
+package edu.cpp.cs411.scanner;
+
+public enum TokenType {
+    BOOLEAN,
+    BREAK,
+    CLASS,
+    DOUBLE,
+    ELSE,
+    EXTENDS,
+    FOR,
+    IF,
+    IMPLEMENTS,
+    INT,
+    INTERFACE,
+    NEWARRAY,
+    PRINTLN,
+    READLN,
+    RETURN,
+    STRING,
+    VOID,
+    WHILE,
+    PLUS,
+    MINUS,
+    MULTIPLICATION,
+    DIVISION,
+    MOD,
+    LESS,
+    LESSEQUAL,
+    GREATER,
+    GREATEREQUAL,
+    EQUAL,
+    NOTEQUAL,
+    AND,
+    OR,
+    NOT,
+    ASSIGNOP,
+    SEMICOLON,
+    COMMA,
+    PERIOD,
+    LEFTPAREN,
+    RIGHTPAREN,
+    LEFTBRACKET,
+    RIGHTBRACKET,
+    LEFTBRACE,
+    RIGHTBRACE,
+    INTCONSTANT,
+    DOUBLECONSTANT,
+    STRINGCONSTANT,
+    BOOLEANCONSTANT,
+    ID;
+
+    @Override
+    public String toString() {
+        return "_"+super.toString().toLowerCase();
+    }
+}

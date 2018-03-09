@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="jar" name="ToyCompiler:jar">
+    <output-path>$PROJECT_DIR$/out/artifacts/ToyCompiler_jar</output-path>
+    <root id="archive" name="ToyCompiler.jar">
+      <element id="module-output" name="ToyCompiler" />
+    </root>
+  </artifact>
+</component>

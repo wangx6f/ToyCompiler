@@ -1,0 +1,23 @@
+// consider possible success cases
+boolean break class double else
+extends false for if implements
+int interface newarray println
+readln return string true void while
+
+// keywords
+booleanboolean class0x println_return /* multiple
+line comment /** */
+// identifiers
+
+0 1. 1.25 1E-1 0E+10 a*0x25aF 5.E6 6.2E12 0.1
+// numbers
+
++-*/%<<=>>===! =&&||!=;,.()[]{}
+// operators
+
+"hello&world''"
+// string
+
+0.1boolean_(0x67!=class0x)
+newarray.toString(readln(booleanboolean));
+// combinations

@@ -1,0 +1,11 @@
+<component name="libraryTable">
+  <library name="java-cup-11b-runtime">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/../Parser/java-cup-11b-runtime.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES>
+      <root url="jar://$PROJECT_DIR$/../Parser/java-cup-11b-runtime.jar!/" />
+    </SOURCES>
+  </library>
+</component>

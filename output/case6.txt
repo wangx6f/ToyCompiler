@@ -1,0 +1,22 @@
+Enter the file name that is to be scanned:
+case6.toy
+
+Result of the scanner:
+_int _leftbracket _rightbracket _leftbracket _rightbracket _leftbracket _rightbracket _id _semicolon
+* * * * * * *
+* accepted  *
+* * * * * * *
+
+Result of the parser:
+_int [shift]
+_leftbracket [shift]
+_rightbracket [shift]
+_leftbracket [shift]
+_rightbracket [shift]
+_leftbracket [shift]
+_rightbracket [shift]
+_id [reduce 16][reduce 15][reduce 15][reduce 15][reduce 10][shift]
+_semicolon [reduce 9][reduce 8][reduce 4][reduce 2][reduce 1]
+[accept]
+
+Process finished with exit code 0

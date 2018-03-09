@@ -1,0 +1,12 @@
+class f extends C implements A,B {
+    void f(){
+        while(a&&b){
+            a.print(a);
+            return C;
+        }
+    }
+}
+
+interface A {
+int func(A a);
+}

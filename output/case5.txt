@@ -1,0 +1,22 @@
+Enter the file name that is to be scanned:
+case5.toy
+
+Result of the scanner:
+_id _assignop _id _period _id _semicolon
+* * * * * * *
+* accepted  *
+* * * * * * *
+
+Result of the parser:
+_id [shift]
+_assignop
+[reject]
+Couldn't repair and continue parse for input symbol "ASSIGNOP" spanning from null to null
+Exception in thread "main" java.lang.Exception: Can't recover from previous error(s)
+	at java_cup.runtime.lr_parser.report_fatal_error(lr_parser.java:392)
+	at java_cup.runtime.lr_parser.unrecovered_syntax_error(lr_parser.java:539)
+	at java_cup.runtime.lr_parser.parse(lr_parser.java:731)
+	at edu.cpp.cs411.Main.run(Main.java:29)
+	at edu.cpp.cs411.Main.main(Main.java:11)
+
+Process finished with exit code 1

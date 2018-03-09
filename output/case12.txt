@@ -1,0 +1,68 @@
+Enter the file name that is to be scanned:
+case12.toy
+
+Result of the scanner:
+_class _id _extends _id _implements _id _comma _id _leftbrace
+_void _id _leftparen _rightparen _leftbrace
+_while _leftparen _id _and _id _rightparen _leftbrace
+_id _period _id _leftparen _id _rightparen _semicolon
+_return _id _semicolon
+_rightbrace
+_rightbrace
+_rightbrace
+_interface _id _leftbrace
+_int _id _leftparen _id _id _rightparen _semicolon
+_rightbrace
+* * * * * * *
+* accepted  *
+* * * * * * *
+
+Result of the parser:
+_class [shift]
+_id [shift]
+_extends [shift]
+_id [shift]
+_implements [reduce 23][shift]
+_id [shift]
+_comma [shift]
+_id [shift]
+_leftbrace [reduce 27][reduce 28][reduce 25][shift]
+_void [shift]
+_id [shift]
+_leftparen [shift]
+_rightparen [reduce 21][shift]
+_leftbrace [shift]
+_while [shift]
+_leftparen [shift]
+_id [shift]
+_and [reduce 88][reduce 68][shift]
+_id [shift]
+_rightparen [reduce 88][reduce 68][reduce 83][shift]
+_leftbrace [shift]
+_id [shift]
+_period [shift]
+_id [shift]
+_leftparen [shift]
+_id [shift]
+_rightparen [reduce 88][reduce 68][reduce 64][reduce 93][shift]
+_semicolon [reduce 92][reduce 69][reduce 54][shift]
+_return [reduce 46][reduce 45][shift]
+_id [shift]
+_semicolon [reduce 88][reduce 68][reduce 54][shift]
+_rightbrace [reduce 62][reduce 51][reduce 44][shift]
+_rightbrace [reduce 40][reduce 53][reduce 59][reduce 48][reduce 45][shift]
+_rightbrace [reduce 40][reduce 18][reduce 32][reduce 30][reduce 29][shift]
+_interface [reduce 22][reduce 6][shift]
+_id [shift]
+_leftbrace [shift]
+_int [shift]
+_id [reduce 16][reduce 10][shift]
+_leftparen [shift]
+_id [shift]
+_id [reduce 16][reduce 14][shift]
+_rightparen [reduce 9][reduce 19][shift]
+_semicolon [shift]
+_rightbrace [reduce 36][reduce 35][reduce 34][reduce 33][reduce 7][reduce 2][reduce 3][reduce 1]
+[accept]
+
+Process finished with exit code 0

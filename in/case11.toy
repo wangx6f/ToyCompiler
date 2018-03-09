@@ -1,0 +1,22 @@
+// This code should be able to parsed
+
+// Variable Decl
+int myInteger;
+MyClass007 myClass;
+
+// Function Decl
+
+MyClass009 func () {
+
+double d;
+boolean b;
+string s;
+int[][] matrix;
+
+if(a*b>c)
+if(a==b)
+a=-a;
+else
+println(a+b,newarray(5,double));
+
+}

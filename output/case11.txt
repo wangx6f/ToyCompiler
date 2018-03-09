@@ -1,0 +1,88 @@
+Enter the file name that is to be scanned:
+case11.toy
+
+Result of the scanner:
+_int _id _semicolon
+_id _id _semicolon
+_id _id _leftparen _rightparen _leftbrace
+_double _id _semicolon
+_boolean _id _semicolon
+_string _id _semicolon
+_int _leftbracket _rightbracket _leftbracket _rightbracket _id _semicolon
+_if _leftparen _id _multiplication _id _greater _id _rightparen
+_if _leftparen _id _equal _id _rightparen
+_id _assignop _minus _id _semicolon
+_else
+_println _leftparen _id _plus _id _comma _newarray _leftparen _intconstant _comma _double _rightparen _rightparen _semicolon
+_rightbrace
+
+* * * * * * *
+* accepted  *
+* * * * * * *
+
+Result of the parser:
+_int [shift]
+_id [reduce 16][reduce 10][shift]
+_semicolon [reduce 9][shift]
+_id [reduce 8][reduce 4][shift]
+_id [reduce 16][reduce 14][shift]
+_semicolon [reduce 9][shift]
+_id [reduce 8][reduce 4][shift]
+_id [reduce 16][reduce 14][shift]
+_leftparen [shift]
+_rightparen [reduce 21][shift]
+_leftbrace [shift]
+_double [shift]
+_id [reduce 16][reduce 11][shift]
+_semicolon [reduce 9][shift]
+_boolean [reduce 8][reduce 43][shift]
+_id [reduce 16][reduce 12][shift]
+_semicolon [reduce 9][shift]
+_string [reduce 8][reduce 42][shift]
+_id [reduce 16][reduce 13][shift]
+_semicolon [reduce 9][shift]
+_int [reduce 8][reduce 42][shift]
+_leftbracket [shift]
+_rightbracket [shift]
+_leftbracket [shift]
+_rightbracket [shift]
+_id [reduce 16][reduce 15][reduce 15][reduce 10][shift]
+_semicolon [reduce 9][shift]
+_if [reduce 8][reduce 42][shift]
+_leftparen [shift]
+_id [shift]
+_multiplication [reduce 88][reduce 68][shift]
+_id [shift]
+_greater [reduce 88][reduce 68][reduce 73][shift]
+_id [shift]
+_rightparen [reduce 88][reduce 68][reduce 79][shift]
+_if [shift]
+_leftparen [shift]
+_id [shift]
+_equal [reduce 88][reduce 68][shift]
+_id [shift]
+_rightparen [reduce 88][reduce 68][reduce 81][shift]
+_id [shift]
+_assignop [reduce 88][shift]
+_minus [shift]
+_id [shift]
+_semicolon [reduce 88][reduce 68][reduce 76][reduce 66][reduce 54][shift]
+_else [reduce 46][shift]
+_println [shift]
+_leftparen [shift]
+_id [shift]
+_plus [reduce 88][reduce 68][shift]
+_id [shift]
+_comma [reduce 88][reduce 68][reduce 71][shift]
+_newarray [shift]
+_leftparen [shift]
+_intconstant [shift]
+_comma [shift]
+_double [shift]
+_rightparen [reduce 16][reduce 11][shift]
+_rightparen [reduce 87][reduce 64][reduce 65][shift]
+_semicolon [shift]
+_rightbrace [reduce 63][reduce 52][reduce 57][reduce 56][reduce 47][reduce 58][reduce 56][reduce 47][reduce 45][reduce 38][reduce 17][reduce 5][reduce 2][reduce 3][reduce 3][reduce 1]
+[accept]
+
+Process finished with exit code 0

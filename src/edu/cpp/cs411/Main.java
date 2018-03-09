@@ -35,7 +35,7 @@ public class Main {
     private static String getFileName(){
         java.util.Scanner scanner = new java.util.Scanner(System.in);
         System.out.println("Enter the file name that is to be scanned:");
-        return "ToyCompiler/in/"+scanner.nextLine();
+        return "in/"+scanner.nextLine();
     }
 
 }

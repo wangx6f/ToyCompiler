@@ -1,0 +1,24 @@
+Enter the file name that is to be scanned:
+case1.toy
+
+Result of the scanner:
+_void _id _leftparen _double _id _comma _double _id _rightparen _leftbrace _rightbrace
+* * * * * * *
+* accepted  *
+* * * * * * *
+
+Result of the parser:
+_void [shift]
+_id [shift]
+_leftparen [shift]
+_double [shift]
+_id [reduce 16][reduce 11][shift]
+_comma [reduce 9][shift]
+_double [shift]
+_id [reduce 16][reduce 11][shift]
+_rightparen [reduce 9][reduce 19][reduce 20][shift]
+_leftbrace [shift]
+_rightbrace [reduce 41][reduce 18][reduce 5][reduce 2][reduce 1]
+[accept]
+
+Process finished with exit code 0

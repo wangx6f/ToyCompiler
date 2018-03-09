@@ -5,8 +5,8 @@
 
 package edu.cpp.cs411.parser;
 
-/** CUP generated interface containing symbol constants. */
-public interface ParserSym {
+/** CUP generated class containing symbol constants. */
+public class ParserSym {
   /* terminals */
   public static final int LEFTBRACKET = 40;
   public static final int PERIOD = 37;

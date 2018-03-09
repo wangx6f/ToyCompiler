@@ -29,8 +29,8 @@ precedence left EQUAL, NOTEQUAL;
 precedence nonassoc LESS, LESSEQUAL, GREATER, GREATEREQUAL;
 precedence left PLUS, MINUS;
 precedence left MULTIPLICATION, DIVISION, MOD;
-precedence nonassoc NOT;
-precedence nonassoc LEFTBRACKET, PERIOD;
+precedence right NOT;
+precedence nonassoc PERIOD,LEFTBRACKET;
 
 
 /* The grammar rules */

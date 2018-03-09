@@ -1,0 +1,29 @@
+Enter the file name that is to be scanned:
+case4x.toy
+
+Result of the scanner:
+_void _id _leftparen _rightparen _leftbrace
+_id _assignop _id _period _id _leftparen _rightparen _semicolon
+_rightbrace
+* * * * * * *
+* accepted  *
+* * * * * * *
+
+Result of the parser:
+_void [shift]
+_id [shift]
+_leftparen [shift]
+_rightparen [reduce 21][shift]
+_leftbrace [shift]
+_id [shift]
+_assignop [reduce 88][shift]
+_id [shift]
+_period [shift]
+_id [shift]
+_leftparen [shift]
+_rightparen [reduce 94][shift]
+_semicolon [reduce 92][reduce 69][reduce 66][reduce 54][shift]
+_rightbrace [reduce 46][reduce 45][reduce 40][reduce 18][reduce 5][reduce 2][reduce 1]
+[accept]
+
+Process finished with exit code 0

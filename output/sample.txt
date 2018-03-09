@@ -1,0 +1,155 @@
+Enter the file name that is to be scanned:
+sample.toy
+
+Result of the scanner:
+_int _id _leftparen _int _id _rightparen _leftbrace
+_if _leftparen _id _greater _intconstant _rightparen _return _id _multiplication _id _leftparen _id _minus _intconstant _rightparen _semicolon
+_else _return _intconstant _semicolon
+_rightbrace
+_void _id _leftparen _rightparen _leftbrace
+_int _id _semicolon
+_int _id _semicolon
+_println _leftparen _stringconstant _comma _id _leftparen _intconstant _rightparen _comma _stringconstant _rightparen _semicolon
+_id _assignop _intconstant _semicolon _id _assignop _intconstant _semicolon
+_for _leftparen _semicolon _id _lessequal _intconstant _semicolon _rightparen _leftbrace _id _assignop _id _multiplication _id _semicolon _id _assignop _id _plus _intconstant _semicolon _rightbrace
+_println _leftparen _stringconstant _comma _id _rightparen _semicolon
+_rightbrace
+_class _id _leftbrace
+_int _id _semicolon
+_double _id _semicolon
+_boolean _id _semicolon
+_string _id _semicolon
+_int _leftbracket _rightbracket _id _semicolon
+_id _assignop _booleanconstant _semicolon
+_id _assignop _intconstant _semicolon _id _assignop _intconstant _id _plus _intconstant _semicolon
+_id _assignop _stringconstant _semicolon
+_while _leftparen _id _assignop _leftparen _id _division _intconstant _rightparen _less _intconstant _rightparen _println _leftparen _id _comma _stringconstant _rightparen _semicolon
+_id _assignop _newarray _leftparen _intconstant _comma _int _rightparen _semicolon
+_rightbrace
+
+* * * * * * *
+* accepted  *
+* * * * * * *
+
+Result of the parser:
+_int [shift]
+_id [reduce 16][reduce 10][shift]
+_leftparen [shift]
+_int [shift]
+_id [reduce 16][reduce 10][shift]
+_rightparen [reduce 9][reduce 19][shift]
+_leftbrace [shift]
+_if [shift]
+_leftparen [shift]
+_id [shift]
+_greater [reduce 88][reduce 68][shift]
+_intconstant [shift]
+_rightparen [reduce 95][reduce 67][reduce 79][shift]
+_return [shift]
+_id [shift]
+_multiplication [reduce 88][reduce 68][shift]
+_id [shift]
+_leftparen [shift]
+_id [shift]
+_minus [reduce 88][reduce 68][shift]
+_intconstant [shift]
+_rightparen [reduce 95][reduce 67][reduce 72][reduce 64][reduce 93][shift]
+_semicolon [reduce 91][reduce 69][reduce 73][reduce 54][shift]
+_else [reduce 62][reduce 51][shift]
+_return [shift]
+_intconstant [shift]
+_semicolon [reduce 95][reduce 67][reduce 54][shift]
+_rightbrace [reduce 62][reduce 51][reduce 57][reduce 56][reduce 47][reduce 45][shift]
+_void [reduce 40][reduce 17][reduce 5][shift]
+_id [shift]
+_leftparen [shift]
+_rightparen [reduce 21][shift]
+_leftbrace [shift]
+_int [shift]
+_id [reduce 16][reduce 10][shift]
+_semicolon [reduce 9][shift]
+_int [reduce 8][reduce 43][shift]
+_id [reduce 16][reduce 10][shift]
+_semicolon [reduce 9][shift]
+_println [reduce 8][reduce 42][shift]
+_leftparen [shift]
+_stringconstant [shift]
+_comma [reduce 97][reduce 67][shift]
+_id [shift]
+_leftparen [shift]
+_intconstant [shift]
+_rightparen [reduce 95][reduce 67][reduce 64][reduce 93][shift]
+_comma [reduce 91][reduce 69][shift]
+_stringconstant [shift]
+_rightparen [reduce 97][reduce 67][reduce 64][reduce 65][reduce 65][shift]
+_semicolon [shift]
+_id [reduce 63][reduce 52][reduce 45][shift]
+_assignop [reduce 88][shift]
+_intconstant [shift]
+_semicolon [reduce 95][reduce 67][reduce 66][reduce 54][shift]
+_id [reduce 46][reduce 44][shift]
+_assignop [reduce 88][shift]
+_intconstant [shift]
+_semicolon [reduce 95][reduce 67][reduce 66][reduce 54][shift]
+_for [reduce 46][reduce 44][shift]
+_leftparen [shift]
+_semicolon [reduce 55][shift]
+_id [shift]
+_lessequal [reduce 88][reduce 68][shift]
+_intconstant [shift]
+_semicolon [reduce 95][reduce 67][reduce 78][shift]
+_rightparen [reduce 55][shift]
+_leftbrace [shift]
+_id [shift]
+_assignop [reduce 88][shift]
+_id [shift]
+_multiplication [reduce 88][reduce 68][shift]
+_id [shift]
+_semicolon [reduce 88][reduce 68][reduce 73][reduce 66][reduce 54][shift]
+_id [reduce 46][reduce 45][shift]
+_assignop [reduce 88][shift]
+_id [shift]
+_plus [reduce 88][reduce 68][shift]
+_intconstant [shift]
+_semicolon [reduce 95][reduce 67][reduce 71][reduce 66][reduce 54][shift]
+_rightbrace [reduce 46][reduce 44][shift]
+_println [reduce 40][reduce 53][reduce 60][reduce 49][reduce 44][shift]
+_leftparen [shift]
+_stringconstant [shift]
+_comma [reduce 97][reduce 67][shift]
+_id [shift]
+_rightparen [reduce 88][reduce 68][reduce 64][reduce 65][shift]
+_semicolon [shift]
+_rightbrace [reduce 63][reduce 52][reduce 44][shift]
+_class [reduce 38][reduce 18][reduce 5][shift]
+_id [shift]
+_leftbrace [reduce 24][reduce 26][shift]
+_int [shift]
+_id [reduce 16][reduce 10][shift]
+_semicolon [reduce 9][shift]
+_double [reduce 8][reduce 31][shift]
+_id [reduce 16][reduce 11][shift]
+_semicolon [reduce 9][shift]
+_boolean [reduce 8][reduce 31][shift]
+_id [reduce 16][reduce 12][shift]
+_semicolon [reduce 9][shift]
+_string [reduce 8][reduce 31][shift]
+_id [reduce 16][reduce 13][shift]
+_semicolon [reduce 9][shift]
+_int [reduce 8][reduce 31][shift]
+_leftbracket [shift]
+_rightbracket [shift]
+_id [reduce 16][reduce 15][reduce 10][shift]
+_semicolon [reduce 9][shift]
+_id [reduce 8][reduce 31][shift]
+_assignop
+[reject]
+Couldn't repair and continue parse for input symbol "ASSIGNOP" spanning from null to null
+Exception in thread "main" java.lang.Exception: Can't recover from previous error(s)
+	at java_cup.runtime.lr_parser.report_fatal_error(lr_parser.java:392)
+	at java_cup.runtime.lr_parser.unrecovered_syntax_error(lr_parser.java:539)
+	at java_cup.runtime.lr_parser.parse(lr_parser.java:731)
+	at edu.cpp.cs411.Main.run(Main.java:29)
+	at edu.cpp.cs411.Main.main(Main.java:11)
+
+Process finished with exit code 1

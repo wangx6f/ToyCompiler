@@ -3,6 +3,8 @@ package edu.cpp.cs411.scanner;
 import edu.cpp.cs411.symboltable.Delimiter;
 import edu.cpp.cs411.symboltable.KeywordDelimiter;
 import edu.cpp.cs411.symboltable.SymbolTable;
+import sun.awt.Symbol;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -10,13 +12,17 @@ public class ConsoleOutput implements Output {
 
     private final SymbolTable symbolTable;
 
-    private  StringBuilder stringBuilder;
+    private  StringBuilder tempBuilder;
 
     private final List<Token> result;
 
+
+    private final StringBuilder printStringBuilder;
+
     public ConsoleOutput(){
         symbolTable = new SymbolTable();
-        stringBuilder = new StringBuilder();
+        tempBuilder = new StringBuilder();
+        printStringBuilder = new StringBuilder();
         result = new ArrayList<>();
     }
 
@@ -25,7 +31,8 @@ public class ConsoleOutput implements Output {
     public void generateToken(TokenType tokenType, String value) {
         Token token = new Token(tokenType,value);
         result.add(token);
-        stringBuilder = new StringBuilder();
+        tempBuilder = new StringBuilder();
+        addTokenToPrint(token);
     }
 
     @Override
@@ -38,17 +45,18 @@ public class ConsoleOutput implements Output {
             token = new Token(TokenType.ID,value);
         }
         result.add(token);
-        stringBuilder = new StringBuilder();
+        tempBuilder = new StringBuilder();
+        addTokenToPrint(token);
     }
 
     @Override
     public void consume(Character character) {
-        stringBuilder.append(character);
+        tempBuilder.append(character);
     }
 
     @Override
     public String consumed() {
-        return stringBuilder.toString();
+        return tempBuilder.toString();
     }
 
     @Override
@@ -57,7 +65,10 @@ public class ConsoleOutput implements Output {
     }
 
     public void newLine(){
-        result.add(null);
+        if (printStringBuilder.charAt(printStringBuilder.length()-1) != '\n') {
+            printStringBuilder.append("\n");
+        }
+
     }
 
     @Override
@@ -67,17 +78,11 @@ public class ConsoleOutput implements Output {
 
     public void consolePrint(){
         System.out.println("Result of the scanner:");
-        for(int i=0;i<result.size();i++){
-            Token token = result.get(i);
-            if(token==null && i!=0 && result.get(i-1)!=null){
-                System.out.println();
-                continue;
-            } else if (token==null){
-                continue;
-            }
-            System.out.print(token.getType());
-            System.out.print(" ");
-        }
+        System.out.println(printStringBuilder.toString());
+    }
 
+    private void addTokenToPrint(Token token) {
+        printStringBuilder.append(token.getType());
+        printStringBuilder.append(" ");
     }
 }

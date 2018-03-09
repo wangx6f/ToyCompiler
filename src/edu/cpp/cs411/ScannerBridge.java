@@ -1,16 +1,16 @@
 package edu.cpp.cs411;
 
 import edu.cpp.cs411.parser.ParserSym;
-import edu.cpp.cs411.parser.ScannerInterface;
 import edu.cpp.cs411.scanner.Output;
 import edu.cpp.cs411.scanner.Token;
 import java_cup.runtime.ComplexSymbolFactory;
+import java_cup.runtime.Scanner;
 import java_cup.runtime.Symbol;
 import java_cup.runtime.SymbolFactory;
 
 import java.util.List;
 
-public class ScannerBridge implements ScannerInterface {
+public class ScannerBridge implements Scanner {
 
     private List<Token> result;
 
@@ -29,10 +29,11 @@ public class ScannerBridge implements ScannerInterface {
         if (count == result.size()) {
             return sf.newSymbol("EOF",ParserSym.EOF);
         }
-        Token cur = result.get(count++);
-        while(cur==null) {
-            cur = result.get(count++);
+        if(count!=0) {
+            System.out.println("[shift]");
         }
+        Token cur = result.get(count++);
+        System.out.print(cur.getType()+" ");
         switch (cur.getType()) {
             case INTCONSTANT:
                 return sf.newSymbol("INTCONSTANT",ParserSym.INTCONSTANT);

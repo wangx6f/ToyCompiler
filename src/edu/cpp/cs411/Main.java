@@ -2,8 +2,7 @@ package edu.cpp.cs411;
 
 import edu.cpp.cs411.parser.Parser;
 import edu.cpp.cs411.scanner.*;
-
-import java.io.IOException;
+import java_cup.runtime.ComplexSymbolFactory;
 
 public class Main {
 
@@ -16,7 +15,7 @@ public class Main {
         ConsoleOutput output = new ConsoleOutput();
         boolean accepted = Scanner.scan(new FileInput(getFileName()),output);
         output.consolePrint();
-        System.out.println("\n* * * * * * *");
+        System.out.println("* * * * * * *");
         if (accepted){
             System.out.println("* accepted  *");
         } else {
@@ -25,7 +24,7 @@ public class Main {
         System.out.println("* * * * * * *");
 
         if (accepted) {
-            Parser p = new Parser(new ScannerBridge(output));
+            Parser p = new Parser(new ScannerBridge(output),new ComplexSymbolFactory());
             p.parse();
         }
     }
